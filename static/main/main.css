@@ -1,23 +1,7 @@
-/* @font-face {font-family: 'webfont';
-    src: url('webfont.eot'); /* IE9*/
-    src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('webfont.woff') format('woff'), /* chrome、firefox */
-    url('webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-    url('webfont.svg#webfont') format('svg'); /* iOS 4.1- */
-} */
-
 * {
   margin: 0;
   padding: 0;
-  /* font-family: "微软雅黑"; */
-  /* font-family: PingFangSC-Regular, sans-serif; */
-  /* font-family:"webfont" !important; */
-  /* font-size:16px;font-style:normal; */
-  /* -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: 0.2px;
-  -moz-osx-font-smoothing: grayscale; */
   box-sizing: border-box;
-
 }
 
 a {
@@ -51,6 +35,7 @@ ul {
 .codeRed {
   color: #eb3a40
 }
+
 .codeRedB {
   background: #eb3a40;
 }
@@ -88,7 +73,7 @@ ul {
 }
 
 body {
-  background: #ddd;
+  font-family: Source Han Sans CN;
 }
 
 li {
@@ -225,4 +210,12 @@ a:hover, a:focus {
 
 .flexAc {
   align-items: center
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }

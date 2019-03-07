@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import main from '../view/main.vue'
+import start from '../view/start.vue'
 
 
 Vue.use(Router)
@@ -12,6 +13,11 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'start',
+      component: start
+    },
+    {
+      path: '/main',
       name: 'main',
       component: main
     },
