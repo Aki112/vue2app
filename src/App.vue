@@ -9,8 +9,6 @@
 </template>
 
 <script>
-
-
 export default {
   name: 'App',
   components: {
@@ -20,7 +18,6 @@ export default {
   created() {
   }
 }
-
 </script>
 
 <style>
@@ -46,6 +43,7 @@ export default {
 
 .main {
   height: 100%;
+  /* position: relative; */
 }
 .container {
   position: relative;
