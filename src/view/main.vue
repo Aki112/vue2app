@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="main" @click="stop()">
+  <div class="mainPage" @click="stop(0)">
     <div class="header">
       <div class="nav flex">
         <router-link :to="{ name: '', params: {} }" class="biu"
@@ -18,10 +18,10 @@
       </div>
     </div>
     <div
+      @click.stop="stop(1)"
       class="aside"
       :class="{active:status == 1}"
-      style="transition: all .5s"
-    >
+      style="transition: all .5s">
       <router-link class="" :to="{ name: '', params: {} }" v-for="(all,index) in aside">
         <p>{{all.name}}</p>
       </router-link>
@@ -33,9 +33,11 @@
         <img :src="asideBtn" alt="">
       </div>
     </div>
-    <div class="footerBtn flex flexJs">
-      <colorBtn :data="childBtn.navBtn"></colorBtn>
-      <colorBtn :data="childBtn.buyBtn"></colorBtn>
+    <div class="footer">
+      <div class="flex flexJs">
+        <colorBtn :data="childBtn.navBtn"></colorBtn>
+        <colorBtn :data="childBtn.buyBtn"></colorBtn>
+      </div>
     </div>
   </div>
 </template>
@@ -51,13 +53,13 @@ export default {
           msg: '导航',
           ico: require('../assets/navigation.png'),
           path: 'start',
-          background: '#333'
+          background: '#333',
         },
         buyBtn:{
           msg: '购物车',
           ico: require('../assets/cart.png'),
           path: 'start',
-          background: '#e33434'
+          background: '#e33434',
         },
 
       },
@@ -69,8 +71,17 @@ export default {
       ],
       item: [
         {name: '大蒜腊肉', price: 26, img: require('../assets/1.jpg')},
+        {name: '大蒜腊肉', price: 26, img: require('../assets/1.jpg')},
+        {name: '大蒜腊肉', price: 26, img: require('../assets/1.jpg')},
+        {name: '大蒜腊肉', price: 26, img: require('../assets/1.jpg')},
+        {name: '大蒜腊肉', price: 26, img: require('../assets/1.jpg')},
+        {name: '大蒜腊肉', price: 26, img: require('../assets/1.jpg')},
+        {name: '大蒜腊肉', price: 26, img: require('../assets/1.jpg')},
+        {name: '大蒜腊肉', price: 26, img: require('../assets/1.jpg')},
         {name: '家乡扣肉', price: 26, img: require('../assets/2.jpg')},
         {name: '主打鸡', price: 26, img: require('../assets/3.jpg')},
+        {name: '主打鸡', price: 26, img: require('../assets/3.jpg')},
+        {name: '酸辣土豆丝', price: 26, img: require('../assets/4.jpg')},
         {name: '酸辣土豆丝', price: 26, img: require('../assets/4.jpg')},
         {name: '家乡扣肉', price: 26, img: require('../assets/5.jpg')},
         {name: '长沙臭豆腐', price: 26, img: require('../assets/6.jpg')},
@@ -93,18 +104,25 @@ export default {
     asideTg() {
       this.status = this.status == 1 ? 0 : 1
     },
-    stop() {
-      this.status = 0
+    stop(x) {
+      this.status = x
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.footerBtn {
-  position: fixed;
-  bottom: 0;
-  padding: 0 2rem;
+.mainPage {
+  height: 100vh;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  padding: 1rem 2rem;
+  // flex: 0 0 auto;
 }
 
 .aside {
@@ -136,6 +154,7 @@ export default {
 }
 
 .header {
+  // flex: 0 0 auto;
   .nav {
     padding: 2rem 0;
     .navimg {
@@ -167,6 +186,8 @@ export default {
   flex-wrap: wrap;
   align-content: flex-start;
   padding: 0 .4rem;
+  flex: 1;
+  overflow: auto;
   .items {
     flex: 0 0 33.33333333%;
     text-align: center;
