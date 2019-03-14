@@ -1,3 +1,10 @@
+<!--
+  background
+  msg
+  path
+  flexFun
+  ico
+ -->
 <template lang="html">
   <div class="colorBtn" :style="{background:data.background}">
     <router-link :to="{ name: data.path, params: {} }"

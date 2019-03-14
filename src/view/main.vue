@@ -2,7 +2,7 @@
   <div class="mainPage" @click="stop(0)">
     <div class="header">
       <div class="nav flex">
-        <router-link :to="{ name: '', params: {} }" class="biu"
+        <router-link :to="{ name: all.path, params: {} }" class="biu"
           v-for="(all,index) in list">
           <div class="navimg">
             <img :src="all.ico" alt="">
@@ -14,7 +14,8 @@
     <div class="item flex flexJs">
       <div class="items" v-for="(all,index) in item">
         <img :src="all.img" alt="">
-        <p>{{all.name}}</p>
+        <div>{{all.name}}</div>
+        <div>￥{{all.price}}</div>
       </div>
     </div>
     <div
@@ -50,24 +51,36 @@ export default {
       status: 0,
       childBtn:{
         navBtn:{
-          msg: '导航',
+          msg: '导1航',
           ico: require('../assets/navigation.png'),
           path: 'start',
           background: '#333',
+          flexFun: 'flexRow'
         },
         buyBtn:{
           msg: '购物车',
           ico: require('../assets/cart.png'),
-          path: 'start',
+          path: 'itemCart',
           background: '#e33434',
         },
-
       },
       asideBtn: require("../assets/nav.png"),
       list: [
-        {name: '热销榜', ico: require("../assets/rexiao.png")},
-        {name: '点过的菜', ico: require("../assets/caidan.png")},
-        {name: '搜你喜欢', ico: require("../assets/sousuo.png")},
+        {
+          path:'hot',
+          name: '热销榜',
+          ico: require("../assets/rexiao.png")
+        },
+        {
+          path:'hot',
+          name: '点过的菜',
+          ico: require("../assets/caidan.png")
+        },
+        {
+          path:'hot',
+          name: '搜你喜欢',
+          ico: require("../assets/sousuo.png")
+        },
       ],
       item: [
         {name: '大蒜腊肉', price: 26, img: require('../assets/1.jpg')},
@@ -154,7 +167,6 @@ export default {
 }
 
 .header {
-  // flex: 0 0 auto;
   .nav {
     padding: 2rem 0;
     .navimg {
