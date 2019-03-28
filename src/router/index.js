@@ -9,7 +9,7 @@ import hot from '../view/hot.vue'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',//单独页面单独路径
+  // mode: 'history',//去除# 服务器需要更改配置
   // base: __dirname,
   // linkActiveClass: 'active', // 更改激活状态的Class值
   routes: [

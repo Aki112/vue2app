@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="itemCart">
-    <colorBtn :data="btn"></colorBtn>
+    <colorBtn :info="btn"></colorBtn>
     <div class="itemList">
       <div class="item"
         v-for="(all,index) in itemList"

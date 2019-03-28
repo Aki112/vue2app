@@ -4,49 +4,19 @@
       本店热销榜
     </div>
     <div class="item">
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
-      <div>11</div>
+      <hotlist></hotlist>
     </div>
     <div class="footer">
-      <colorBtn :data="btn.navBtn"></colorBtn>
-      <colorBtn :data="btn.backBtn"></colorBtn>
-      <colorBtn :data="btn.buyBtn"></colorBtn>
+      <colorBtn :info="btn.navBtn"></colorBtn>
+      <colorBtn :info="btn.backBtn"></colorBtn>
+      <colorBtn :info="btn.buyBtn"></colorBtn>
     </div>
   </div>
 </template>
 
 <script>
 import colorBtn from '../components/colorBtn'
+import hotlist from '../components/hotList'
 export default {
   data() {
     return {
@@ -55,23 +25,32 @@ export default {
           msg: '导航',
           ico: require('../assets/navigation.png'),
           background: "rgb(62, 62, 62)",
-          path: ''
+          path: 'main'
         },
         backBtn: {
           msg: '继续点餐',
           ico: require('../assets/menu.png'),
-          background: "rgb(62, 62, 62)"
+          background: "rgb(62, 62, 62)",
+          path: 'main'
         },
         buyBtn: {
           msg: '购物车',
           ico: require('../assets/cart.png'),
-          background: "rgb(255, 73, 73)"
+          background: "rgb(255, 73, 73)",
+          path: 'main'
         }
       },
+
+      list: [
+        {
+          img: require('../assets/cart.png')
+        }
+      ]
     }
   },
   components: {
-    colorBtn
+    colorBtn,
+    hotlist
   }
 }
 </script>

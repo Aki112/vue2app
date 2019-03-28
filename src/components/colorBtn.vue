@@ -4,26 +4,42 @@
   path
   flexFun
   ico
+
+  示例
+  <colorBtn :info="btn"></colorBtn>
+  btn: {
+    msg: '返回',
+    ico: require('../assets/doorder.png'),
+    flexFun: 'flexRow',
+    path: 'main'
+  },
  -->
 <template lang="html">
-  <div class="colorBtn" :style="{background:data.background}">
-    <router-link :to="{ name: data.path, params: {} }"
-      :class="data.flexFun?data.flexFun:'flexCol'"
+  <div class="colorBtn"
+    :class="{active:info.path?true:false}"
+    :style="{background:info.background}"
+  >
+    <router-link :to="{ name: info.path, params: {} }"
+      :class="info.flexFun?info.flexFun:'flexCol'"
       class="flex"
     >
-      <img :src="data.ico" alt="">
-      <span>{{data.msg}}</span>
+      <img :src="info.ico" alt="">
+      <span>{{info.msg}}</span>
     </router-link>
   </div>
 </template>
 
 <script>
 export default {
-  props:['data']
+  props:['info']
 }
 </script>
 
 <style lang="scss" scoped>
+
+.active:hover {
+  opacity: .7
+}
 .colorBtn {
   border-radius: 50%;
   width: 6rem;
@@ -51,6 +67,7 @@ export default {
     color: #fff;
     height: 100%;
   }
+
   img {
     width: 1.7333rem;
     height: 1.7333rem;

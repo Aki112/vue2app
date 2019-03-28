@@ -3,7 +3,7 @@
     <div class="header">
       <div class="nav flex">
         <router-link :to="{ name: all.path, params: {} }" class="biu"
-          v-for="(all,index) in list">
+          v-for="(all,index) in list" :key="index">
           <div class="navimg">
             <img :src="all.ico" alt="">
             <span class="posa">{{all.name}}</span>
@@ -23,7 +23,7 @@
       class="aside"
       :class="{active:status == 1}"
       style="transition: all .5s">
-      <router-link class="" :to="{ name: '', params: {} }" v-for="(all,index) in aside">
+      <router-link class="" :to="{ name: '', params: {} }" v-for="(all,index) in aside" :key="index">
         <p>{{all.name}}</p>
       </router-link>
       <div
@@ -35,9 +35,9 @@
       </div>
     </div>
     <div class="footer">
-      <div class="flex flexJs">
-        <colorBtn :data="childBtn.navBtn"></colorBtn>
-        <colorBtn :data="childBtn.buyBtn"></colorBtn>
+      <div class="flex flexJs posr">
+        <colorBtn :info="childBtn.navBtn" class="posa"></colorBtn>
+        <colorBtn :info="childBtn.buyBtn" class="posa"></colorBtn>
       </div>
     </div>
   </div>
@@ -51,11 +51,10 @@ export default {
       status: 0,
       childBtn:{
         navBtn:{
-          msg: '导1航',
+          msg: '导航',
           ico: require('../assets/navigation.png'),
           path: 'start',
           background: '#333',
-          flexFun: 'flexRow'
         },
         buyBtn:{
           msg: '购物车',
@@ -83,22 +82,22 @@ export default {
         },
       ],
       item: [
-        {name: '大蒜腊肉', price: 26, img: require('../assets/1.jpg')},
-        {name: '大蒜腊肉', price: 26, img: require('../assets/1.jpg')},
-        {name: '大蒜腊肉', price: 26, img: require('../assets/1.jpg')},
-        {name: '大蒜腊肉', price: 26, img: require('../assets/1.jpg')},
-        {name: '大蒜腊肉', price: 26, img: require('../assets/1.jpg')},
-        {name: '大蒜腊肉', price: 26, img: require('../assets/1.jpg')},
-        {name: '大蒜腊肉', price: 26, img: require('../assets/1.jpg')},
-        {name: '大蒜腊肉', price: 26, img: require('../assets/1.jpg')},
-        {name: '家乡扣肉', price: 26, img: require('../assets/2.jpg')},
+        {name: '大蒜腊肉', price: 26, img: require('../assets/7.jpg')},
+        {name: '大蒜腊肉', price: 16, img: require('../assets/3.jpg')},
+        {name: '大蒜腊肉', price: 22, img: require('../assets/2.jpg')},
+        {name: '大蒜腊肉', price: 26, img: require('../assets/5.jpg')},
+        {name: '大蒜腊肉', price: 24, img: require('../assets/4.jpg')},
+        {name: '大蒜腊肉', price: 26, img: require('../assets/2.jpg')},
+        {name: '大蒜腊肉', price: 20, img: require('../assets/3.jpg')},
+        {name: '大蒜腊肉', price: 26, img: require('../assets/6.jpg')},
+        {name: '家乡扣肉', price: 21, img: require('../assets/2.jpg')},
         {name: '主打鸡', price: 26, img: require('../assets/3.jpg')},
-        {name: '主打鸡', price: 26, img: require('../assets/3.jpg')},
-        {name: '酸辣土豆丝', price: 26, img: require('../assets/4.jpg')},
-        {name: '酸辣土豆丝', price: 26, img: require('../assets/4.jpg')},
-        {name: '家乡扣肉', price: 26, img: require('../assets/5.jpg')},
-        {name: '长沙臭豆腐', price: 26, img: require('../assets/6.jpg')},
-        {name: '腊肉', price: 26, img: require('../assets/7.jpg')},
+        {name: '主打鸡', price: 22, img: require('../assets/3.jpg')},
+        {name: '酸辣土豆丝', price: 52, img: require('../assets/4.jpg')},
+        {name: '酸辣土豆丝', price: 29, img: require('../assets/4.jpg')},
+        {name: '家乡扣肉', price: 20, img: require('../assets/5.jpg')},
+        {name: '长沙臭豆腐', price: 21, img: require('../assets/6.jpg')},
+        {name: '腊肉', price: 24, img: require('../assets/7.jpg')},
       ],
       aside: [
         {name:'精品美食'},
@@ -131,11 +130,24 @@ export default {
   display: -ms-flex;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .footer {
+  position: absolute;
   padding: 1rem 2rem;
   // flex: 0 0 auto;
+  bottom: 10%;
+  width: 100%;
+  .posr {
+    .posa:nth-child(1) {
+      left: 0;
+    }
+
+    .posa:nth-child(2) {
+      right: 0;
+    }
+  }
 }
 
 .aside {
